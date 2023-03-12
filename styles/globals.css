@@ -1,26 +1,40 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  color: white;
+  background: #202025;
+  font-family: ApercuPro, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9E9E9E;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+@font-face {
+  font-family: 'ApercuPro';
+  src: url('../assets/fonts/Apercu-pro/apercu_regular_pro.otf');
+  /* src: url('../assets/fonts/Apercu-pro/apercu_medium_pro.otf');
+  src: url('../assets/fonts/Apercu-pro/apercu_bold_pro.otf'); */
+  font-weight: 400;
+  font-style: normal;
 }
