@@ -26,6 +26,9 @@ export default function DefaultLayout(props: any) {
 }
 
 const DefaultLayoutContainer = styled.div`
-  /* width: 80vw; */
-  margin: 9rem auto 0 auto;
+  margin: 6.5rem auto 0 auto;
+
+  @media (min-width: 768px) {
+    margin-top: 9rem;
+  }
 `;

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Default from "../layouts/Default";
-import HeroSection from "../components/sections/HeroSection";
+import HomeSection from "../components/sections/HomeSection";
 import Skills from "../components/sections/SkillsSection";
 import MyWorkSection from "../components/sections/MyWorkSection";
 import ContactSection from "../components/sections/ContactSection";
@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Default>
-        <HeroSection />
+        <HomeSection />
         <Skills />
         <MyWorkSection />
         <ContactSection />

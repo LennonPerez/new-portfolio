@@ -1,33 +1,14 @@
 import styled from "styled-components";
-
-const socialMedia = [
-  {
-    name: "Whatsapp",
-    url: "https://wa.me/584126736618",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/lennonperez/",
-  },
-  {
-    name: "Github",
-    url: "https://github.com/LennonPerez",
-  },
-];
+import SocialMediaList from "./shared/SocialMediaList";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <FooterContainer>
-      <div className="row">
-        <div>
-          {socialMedia.map((s, i) => (
-            <a key={i} href={s.url} target="_blank" rel="noreferrer">
-              {s.name}
-            </a>
-          ))}
-        </div>
-        <p className="footerMessage">
-          Made with ❤️ by Lennon Perez - {new Date().getFullYear()}
+      <div className="footer-inner-container">
+        <SocialMediaList isLight={true} />
+        <p className="footer-message">
+          Made with ❤️ by Lennon Perez - {currentYear}
         </p>
       </div>
     </FooterContainer>
@@ -39,16 +20,28 @@ const FooterContainer = styled.footer`
   height: 4rem;
   color: #000;
 
-  .row {
+  .footer-inner-container {
     height: 100%;
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    a {
-      margin-right: 1rem;
+    @media (min-width: 1024px) {
+      width: 80vw;
+    }
+
+    @media (min-width: 1366px) {
+      width: 70vw;
+    }
+
+    @media (min-width: 1920px) {
+      width: 60vw;
+    }
+
+    .footer-message {
+      font-size: 0.9rem;
     }
   }
 `;
