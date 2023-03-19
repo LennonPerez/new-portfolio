@@ -11,7 +11,7 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
     <NavbarStyles {...props}>
       <h3>Lennon.dev</h3>
       <FontAwesomeIcon
-        className="bars-icon"
+        className="bars-icon "
         icon={showMobileNav ? faX : faBars}
         onClick={() => setShowMobileNav((curr) => !curr)}
       />
@@ -63,14 +63,14 @@ const NavbarStyles = styled.div<NavbarProps>`
   top: 0;
   z-index: 10;
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem 5vw 1.5rem 5vw;
   transition: border-bottom 0.2s ease-in-out;
   ${(props) =>
     props.showShadow && `border-bottom: solid 1px rgba(237 237 237);`}
 
-  /* h3 {
-    font-size: 1.5rem;
-  } */
+  h3 {
+    font-size: 1.3rem;
+  }
 
   @media (min-width: 768px) {
     top: 1.25rem;
@@ -116,7 +116,7 @@ const NavbarStyles = styled.div<NavbarProps>`
 
   .bars-icon {
     width: 1.5rem;
-    height: 1.5rem;
+    height: 1.7rem;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 

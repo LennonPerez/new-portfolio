@@ -4,13 +4,16 @@ import SocialMediaList from "../shared/SocialMediaList";
 import profilePicture from "../../public/assets/images/me.jpeg";
 
 export default function HomeSection() {
+  const myYearsOfExperience =
+    new Date().getFullYear() - new Date("01-09-2021").getFullYear();
   return (
     <HeroSectionContainer id="home-section">
       <div className="info-container">
         <h1>Front-end Developer 👋</h1>
         <p>
           Hi, I&apos;m Lennon Perez, A pasionated web | mobile developer with
-          more than 2 years of profesional experience based in Venezuela 📍
+          more than {myYearsOfExperience} years of profesional experience based
+          in Venezuela <span>📍</span>
         </p>
         <SocialMediaList isLight={false} />
       </div>
@@ -64,6 +67,10 @@ const HeroSectionContainer = styled.div`
     p {
       margin-bottom: 1.5rem;
       color: #dfdfdf;
+
+      span {
+        font-size: 0.8rem;
+      }
     }
   }
 
