@@ -7,6 +7,10 @@ import SocialMediaList from "./shared/SocialMediaList";
 const Navbar: FunctionComponent<NavbarProps> = (props) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
+  if (document) {
+    document.body.style.overflow = showMobileNav ? "hidden" : " auto";
+  }
+
   return (
     <NavbarStyles {...props}>
       <h3>Lennon.dev</h3>
