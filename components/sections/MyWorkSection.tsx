@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import myProjects from "../../utils/myProjects";
+import Image from "next/image";
+import { getSkillByName } from "../../utils/mySkills";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "../shared/Button";
 
 export default function MyWorkSection() {
   return (
@@ -8,8 +12,13 @@ export default function MyWorkSection() {
       <ul className="my-work-container">
         {myProjects.map((p, i) => (
           <li key={i} className="project-container">
-            <h3>{p.title}</h3>
-            <p>{p.description}</p>
+            <div className="thumbnail-container">
+              <Image className="image" src={p.thumbnail} alt={p.title} fill />
+            </div>
+            <div className="content-container">
+              <h3 className="project-title">{p.title}</h3>
+              <p className="project-description">{p.description}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -41,20 +50,66 @@ const MyWorkContainer = styled.div`
 
   .my-work-container {
     list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+
+    /* @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    } */
+
+    @media (min-width: 1366px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     .project-container {
-      padding: 1rem;
       border-radius: 10px;
-      background-color: #fcfcfc;
-      margin-bottom: 2rem;
+      background-color: #303036;
+      /* background-color: #fcfcfc; */
 
-      h3,
-      p {
-        color: #1f1f24;
+      @media (min-width: 768px) {
+        display: flex;
+        min-height: 15rem;
       }
 
-      h3 {
-        margin-bottom: 0.5rem;
+      .thumbnail-container {
+        position: relative;
+        height: 15rem;
+
+        @media (min-width: 768px) {
+          height: 100%;
+          width: 40%;
+        }
+
+        .image {
+          object-fit: cover;
+          border-radius: 10px 10px 0 0;
+          z-index: 0;
+
+          @media (min-width: 768px) {
+            border-radius: 10px 0 0 10px;
+          }
+        }
+      }
+
+      .content-container {
+        padding: 1rem;
+
+        @media (min-width: 768px) {
+          width: 60%;
+        }
+
+        .project-title {
+          /* color: #1f1f24; */
+          color: #fff;
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .project-description {
+          color: #dfdfdf;
+          /* margin-bottom: 1rem; */
+        }
       }
     }
   }

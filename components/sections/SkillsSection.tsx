@@ -48,7 +48,7 @@ const SkillsSectionContainer = styled.div`
       display: flex;
       align-items: center;
       /* justify-content: space-between; */
-      padding: 1rem;
+      padding: 0.5rem 1rem;
       margin-bottom: 1rem;
       margin-right: 1rem;
       border-radius: 10px;

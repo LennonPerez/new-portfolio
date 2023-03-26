@@ -8,14 +8,37 @@ import {
   IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
 
-enum skillType {
+export enum skillType {
   FrontEnd = "Frontend", 
   BackEnd = "Backend", 
   FullStack = "Fullstack", 
   Blockchain = "Blockchain",
 }
 
-interface skill {
+export enum skillName {
+  JavaScript = "JavaScript",
+  TypeScript = "TypeScript",
+  React = "React",
+  ReactNative = "React Native",
+  NextJS = "Next.js",
+  Gatsby = "Gatsby",
+  Flutter = "Flutter",
+  Dart = "Dart",
+  VueJS = "Vue.js",
+  Nuxt = "Nuxt",
+  CSS3 = "CSS3",
+  SASS = "SASS",
+  TailwindCSS = "Tailwind CSS",
+  Bootstrap = "Bootstrap",
+  MaterialUI = "Material UI",
+  NodeJS = "Node.js",
+  ExpressJS = "Express.js",
+  Firebase = "Firebase",
+  Jest = "Jest",
+  Python = "Python",
+}
+
+export interface skill {
   title: string,
   type: skillType,
   icon: IconDefinition,
@@ -23,107 +46,107 @@ interface skill {
 
 const mySkills: skill[] = [
   {
-    title: "JavaScript",
+    title: skillName.JavaScript,
     type: skillType.FrontEnd,
     icon: faJsSquare,
   },
   {
-    title: "TypeScript",
+    title: skillName.TypeScript,
     type: skillType.FrontEnd,
     icon: faJsSquare,
   },
   {
-    title: "React",
+    title: skillName.React,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "React Native",
+    title: skillName.ReactNative,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "Next.js",
+    title: skillName.NextJS,
     type: skillType.FullStack,
     icon: faReact,
   },
   {
-    title: "Gatsby",
+    title: skillName.Gatsby,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "Flutter",
+    title: skillName.Flutter,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "Dart",
+    title: skillName.Dart,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "Vue.js",
+    title: skillName.VueJS,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "Nuxt",
+    title: skillName.Nuxt,
     type: skillType.FrontEnd,
     icon: faReact,
   },
   {
-    title: "CSS3",
+    title: skillName.CSS3,
     type: skillType.FrontEnd,
     icon: faCss3Alt,
   },
   {
-    title: "SASS",
+    title:  skillName.SASS,
     type: skillType.FrontEnd,
     icon: faSass,
   },
   {
-    title: "Tailwind CSS",
+    title: skillName.TailwindCSS,
     type: skillType.FrontEnd,
     icon: faCss3Alt,
   },
   {
-    title: "Bootstrap",
+    title: skillName.Bootstrap,
     type: skillType.FrontEnd,
     icon: faCss3Alt,
   },
   {
-    title: "Material UI",
+    title: skillName.MaterialUI,
     type: skillType.FrontEnd,
     icon: faCss3Alt,
   },
   {
-    title: "Node.js",
+    title: skillName.NodeJS,
     type: skillType.BackEnd,
     icon: faNodeJs,
   },
   {
-    title: "Express.js",
+    title: skillName.ExpressJS,
     type: skillType.BackEnd,
     icon: faNodeJs,
   },
   {
-    title: "Firebase",
+    title: skillName.Firebase,
     type: skillType.BackEnd,
     icon: faNodeJs,
   },
   {
-    title: "Jest",
+    title: skillName.Jest,
     type: skillType.FullStack,
     icon: faNodeJs,
   },
   {
-    title: "Python",
+    title: skillName.Python,
     type: skillType.BackEnd,
     icon: faPython,
   },
 ];
 
-export const getSkillByName = (name: string) => mySkills.find(s => s.title === name)
+export const getSkillByName = (name: skillName): skill | undefined  => mySkills.find(s => s.title === name)
 
 export default mySkills;

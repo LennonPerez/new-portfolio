@@ -1,4 +1,5 @@
-import { FunctionComponent, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
@@ -7,9 +8,9 @@ import SocialMediaList from "./shared/SocialMediaList";
 const Navbar: FunctionComponent<NavbarProps> = (props) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
-  if (document) {
+  useEffect(() => {
     document.body.style.overflow = showMobileNav ? "hidden" : " auto";
-  }
+  }, []);
 
   return (
     <NavbarStyles {...props}>
@@ -60,17 +61,21 @@ type NavbarProps = {
 };
 
 const NavbarStyles = styled.div<NavbarProps>`
+  z-index: 10;
   background-color: #1f1f24;
   display: flex;
   justify-content: space-between;
   position: fixed;
   top: 0;
-  z-index: 10;
-  width: 100%;
+  left: 0;
+  right: 0;
   padding: 1.5rem 5vw 1.5rem 5vw;
-  transition: border-bottom 0.2s ease-in-out;
-  ${(props) =>
-    props.showShadow && `border-bottom: solid 1px rgba(237 237 237);`}
+  border-bottom-color: transparent;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  transition: border-color 0.2s ease-in-out;
+
+  ${(props) => props.showShadow && `border-bottom-color: rgba(237 237 237);`}
 
   h3 {
     font-size: 1.3rem;
@@ -78,9 +83,8 @@ const NavbarStyles = styled.div<NavbarProps>`
 
   @media (min-width: 768px) {
     top: 1.25rem;
-    left: 5vw;
-    right: 5vw;
-    width: 90vw;
+    left: 4.775vw;
+    right: 4.775vw;
     padding-left: ${(props) => (props.showShadow ? "1.5rem" : "0")};
     padding-right: ${(props) => (props.showShadow ? "1.5rem" : "0")};
     padding-bottom: calc(1.5rem - 5px);
@@ -101,21 +105,18 @@ const NavbarStyles = styled.div<NavbarProps>`
   }
 
   @media (min-width: 1024px) {
-    left: 10vw;
-    right: 10vw;
-    width: 80vw;
+    left: 9.75vw;
+    right: 9.75vw;
   }
 
   @media (min-width: 1366px) {
-    left: 15vw;
-    right: 15vw;
-    width: 70vw;
+    left: 14.75vw;
+    right: 14.75vw;
   }
 
   @media (min-width: 1920px) {
-    left: 20vw;
-    right: 20vw;
-    width: 60vw;
+    left: 19.9vw;
+    right: 19.85vw;
   }
 
   .bars-icon {

@@ -1,4 +1,5 @@
-import { FunctionComponent } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { FunctionComponent, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
@@ -19,9 +20,9 @@ const Modal: FunctionComponent<ModalProps> = (props) => {
   //   container = rootContainer;
   // }
 
-  if (document) {
+  useEffect(() => {
     document.body.style.overflow = props.isOpen ? "hidden" : " auto";
-  }
+  }, []);
 
   const element: JSX.Element | null = props.isOpen ? (
     <ModalContainer {...props}>
