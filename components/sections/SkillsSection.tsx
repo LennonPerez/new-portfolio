@@ -1,15 +1,27 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import mySkills from "../../utils/mySkills";
+import mySkills, { skillType } from "../../utils/mySkills";
 
 export default function SkillsSection() {
+  const frontEndSkills = mySkills.filter((s) => s.type == skillType.FrontEnd);
+  const backEndSkills = mySkills.filter((s) => s.type == skillType.BackEnd);
+
   return (
     <SkillsSectionContainer id="skills-section">
       <h2>My profesional skills</h2>
+      <h3>Front-end</h3>
       <ul className="skills-container">
-        {mySkills.map((s, i) => (
+        {frontEndSkills.map((s, i) => (
           <li key={i} className="skill-container">
-            <FontAwesomeIcon className="skill-icon" icon={s.icon} />
+            <s.icon className="skill-icon" />
+            <p>{s.title}</p>
+          </li>
+        ))}
+      </ul>
+      <h3>Back-end</h3>
+      <ul className="skills-container">
+        {backEndSkills.map((s, i) => (
+          <li key={i} className="skill-container">
+            <s.icon className="skill-icon" />
             <p>{s.title}</p>
           </li>
         ))}
@@ -40,9 +52,20 @@ const SkillsSectionContainer = styled.div`
     margin-bottom: 2rem;
   }
 
+  h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
   .skills-container {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     .skill-container {
       display: flex;
@@ -56,9 +79,13 @@ const SkillsSectionContainer = styled.div`
       color: #1f1f24;
 
       .skill-icon {
-        width: 2rem;
-        height: 2rem;
-        margin-right: 1rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
       }
     }
   }

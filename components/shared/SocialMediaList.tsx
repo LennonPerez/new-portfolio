@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import contactOptions from "../../utils/myContactOptions";
 
 interface SocialMediaListProps {
@@ -19,7 +18,7 @@ const SocialMediaList: FunctionComponent<SocialMediaListProps> = (props) => {
           target="_blank"
           rel="noreferrer"
         >
-          <FontAwesomeIcon className="icon" icon={s.icon} />
+          <s.icon className="icon" />
         </a>
       ))}
     </SocialMediaListContainer>
@@ -39,8 +38,8 @@ const SocialMediaListContainer = styled.div<SocialMediaListProps>`
       color: ${(props) => (props.isLight ? "#1f1f24" : "#fcfcfc")};
       transition: color 0.3s ease-in-out;
       vertical-align: -0.29rem;
-      height: 1.2rem;
-      width: 1.2rem;
+      height: 1.3rem;
+      width: 1.3rem;
     }
 
     &:hover {

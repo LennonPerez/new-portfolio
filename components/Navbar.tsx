@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import SocialMediaList from "./shared/SocialMediaList";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar: FunctionComponent<NavbarProps> = (props) => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -15,11 +15,17 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
   return (
     <NavbarStyles {...props}>
       <h3>Lennon.dev</h3>
-      <FontAwesomeIcon
-        className="bars-icon "
-        icon={showMobileNav ? faX : faBars}
-        onClick={() => setShowMobileNav((curr) => !curr)}
-      />
+      {showMobileNav ? (
+        <AiOutlineClose
+          className="bars-icon"
+          onClick={() => setShowMobileNav(false)}
+        />
+      ) : (
+        <RxHamburgerMenu
+          className="bars-icon"
+          onClick={() => setShowMobileNav(true)}
+        />
+      )}
       {showMobileNav ? (
         <div className="nav-container mobile">
           <div className="sections">

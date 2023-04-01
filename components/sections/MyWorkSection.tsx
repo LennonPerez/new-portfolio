@@ -2,7 +2,6 @@ import styled from "styled-components";
 import myProjects from "../../utils/myProjects";
 import Image from "next/image";
 import { getSkillByName } from "../../utils/mySkills";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../shared/Button";
 
 export default function MyWorkSection() {

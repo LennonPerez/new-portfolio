@@ -7,6 +7,7 @@ export default function Footer() {
     <FooterContainer>
       <div className="footer-inner-container">
         <SocialMediaList isLight={true} />
+        {/* <div /> */}
         <p className="footer-message">
           Made with ❤️ by Lennon Perez - {currentYear}
         </p>
