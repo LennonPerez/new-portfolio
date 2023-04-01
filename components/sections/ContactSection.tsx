@@ -80,11 +80,12 @@ export default function ContactSection() {
             onChange={onChangeInput}
           />
           <Button
-            text="Send message"
-            isLoading={isSending}
+            isDisabled={isSending}
             buttonType="submit"
             // onClick={() => setIsModalOpen(true)}
-          />
+          >
+            Send message
+          </Button>
         </form>
       </div>
       <Modal
@@ -109,7 +110,7 @@ export default function ContactSection() {
             </div>
           ) : null}
           <div className="modal-btn">
-            <Button text="Got it" onClick={() => setIsModalOpen(false)} />
+            <Button onClick={() => setIsModalOpen(false)}>Got it</Button>
           </div>
         </div>
       </Modal>

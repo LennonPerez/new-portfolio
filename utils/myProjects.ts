@@ -7,7 +7,7 @@ import { StaticImageData } from 'next/image';
 interface myProjects {
     title: string,
     description: string,
-    thumbnail: HTMLImageElement | StaticImageData,
+    thumbnail: StaticImageData,
     repoLink?: string,
     webLink?: string,
     googlePlayStoreLink?: string,

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import useScrollPosition from "../hooks/useScrollPosition";
 import styled from "styled-components";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function DefaultLayout(props: any) {
   const [isScrollOnTop, setIsScrollOnTop] = useState(false);
@@ -20,7 +20,7 @@ export default function DefaultLayout(props: any) {
     <DefaultLayoutContainer>
       <Navbar showShadow={isScrollOnTop} />
       {props.children}
-      <Footer />
+      {/* <Footer /> */}
     </DefaultLayoutContainer>
   );
 }

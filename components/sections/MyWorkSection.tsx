@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import myProjects from "../../utils/myProjects";
 import Image from "next/image";
-import { getSkillByName } from "../../utils/mySkills";
+import myProjects from "../../utils/myProjects";
 import Button from "../shared/Button";
+import { getSkillByName } from "../../utils/mySkills";
 
 export default function MyWorkSection() {
   return (
@@ -15,8 +15,24 @@ export default function MyWorkSection() {
               <Image className="image" src={p.thumbnail} alt={p.title} fill />
             </div>
             <div className="content-container">
-              <h3 className="project-title">{p.title}</h3>
-              <p className="project-description">{p.description}</p>
+              <div className="content-text">
+                <h3 className="project-title">{p.title}</h3>
+                <p className="project-description">{p.description}</p>
+              </div>
+              <div className="project-buttons">
+                <Button
+                  isDisabled={!p.repoLink}
+                  onClick={() => window.open(p.repoLink, "_blank")}
+                >
+                  Repository
+                </Button>
+                <Button
+                  isDisabled={!p.webLink}
+                  onClick={() => window.open(p.webLink, "_blank")}
+                >
+                  {p.isAppInProd ? "Go to app" : "Live demo"}
+                </Button>
+              </div>
             </div>
           </li>
         ))}
@@ -92,22 +108,38 @@ const MyWorkContainer = styled.div`
       }
 
       .content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         padding: 1rem;
 
         @media (min-width: 768px) {
           width: 60%;
         }
 
-        .project-title {
-          /* color: #1f1f24; */
-          color: #fff;
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
+        .content-text {
+          .project-title {
+            /* color: #1f1f24; */
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+          }
+
+          .project-description {
+            color: #dfdfdf;
+            margin-bottom: 1.5rem;
+          }
         }
 
-        .project-description {
-          color: #dfdfdf;
-          /* margin-bottom: 1rem; */
+        .project-buttons {
+          display: flex;
+
+          button:first-child {
+            margin-right: 1rem;
+          }
+          button:last-child {
+            margin-right: 0;
+          }
         }
       }
     }

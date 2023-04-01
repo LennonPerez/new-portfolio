@@ -67,7 +67,7 @@ const InputContainer = styled.div<{ isFocused: boolean; props: InputProps }>`
   margin-bottom: 1rem;
   transition: border 0.2s ease-in-out;
   border: 1px solid
-    ${({ isFocused }) => (isFocused ? "#9e9e9e" : "transparent")};
+    ${({ isFocused }) => (isFocused ? "#8a8a8a" : "transparent")};
 
   label {
     cursor: ${({ props }) => (props.isDisabled ? "not-allowed" : "text")};
@@ -77,6 +77,7 @@ const InputContainer = styled.div<{ isFocused: boolean; props: InputProps }>`
   }
   input,
   textarea {
+    font-family: ApercuPro, sans-serif;
     cursor: ${({ props }) => (props.isDisabled ? "not-allowed" : "text")};
     padding: 0.4rem 1rem 1rem 1rem;
     border-radius: 0 0 10px 10px;
