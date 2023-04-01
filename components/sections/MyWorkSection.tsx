@@ -28,7 +28,7 @@ export default function MyWorkSection() {
 
 const MyWorkContainer = styled.div`
   width: 90vw;
-  margin: 0 auto 5rem auto;
+  margin: 0 auto 7rem auto;
 
   @media (min-width: 1024px) {
     width: 80vw;
@@ -43,7 +43,7 @@ const MyWorkContainer = styled.div`
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 2rem;
   }

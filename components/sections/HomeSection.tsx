@@ -50,7 +50,7 @@ const HeroSectionContainer = styled.div`
   }
 
   .info-container {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
     @media (min-width: 768px) {
       width: 50%;
@@ -67,6 +67,7 @@ const HeroSectionContainer = styled.div`
     p {
       margin-bottom: 1.5rem;
       color: #dfdfdf;
+      font-size: 1.1rem;
 
       span {
         font-size: 0.8rem;

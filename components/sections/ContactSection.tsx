@@ -39,45 +39,54 @@ export default function ContactSection() {
 
   return (
     <ContactSectionContainer id="contact-section">
-      <h2>Get in touch!</h2>
-      <form className="form-container" onSubmit={onSubmitForm}>
-        <div className="responsive-inputs">
-          <div className="inputName">
+      <div className="contact-section-container">
+        <div className="contact-description-container">
+          <h2>Get in touch!</h2>
+          <p>
+            Have you got an interesting idea?, you can contact me trough the
+            form down bellow, or my social media. Let&apos;s talk!
+          </p>
+          <SocialMediaList isLight={false} />
+        </div>
+        <form className="contact-form-container" onSubmit={onSubmitForm}>
+          <div className="responsive-inputs">
+            <div className="inputName">
+              <Input
+                label="Name"
+                name="name"
+                placeholder="Enter your name"
+                isDisabled={isSending}
+                isRequired
+                onChange={onChangeInput}
+              />
+            </div>
             <Input
-              label="Name"
-              name="name"
-              placeholder="Enter your name"
+              label="Email"
+              name="email"
+              placeholder="Enter your email"
+              textType="email"
               isDisabled={isSending}
               isRequired
               onChange={onChangeInput}
             />
           </div>
           <Input
-            label="Email"
-            name="email"
-            placeholder="Enter your email"
-            textType="email"
+            label="Message"
+            name="message"
+            placeholder="Enter your message"
+            linesNum={5}
             isDisabled={isSending}
             isRequired
             onChange={onChangeInput}
           />
-        </div>
-        <Input
-          label="Message"
-          name="message"
-          placeholder="Enter your message"
-          linesNum={5}
-          isDisabled={isSending}
-          isRequired
-          onChange={onChangeInput}
-        />
-        <Button
-          text="Submit"
-          isLoading={isSending}
-          buttonType="submit"
-          // onClick={() => setIsModalOpen(true)}
-        />
-      </form>
+          <Button
+            text="Send message"
+            isLoading={isSending}
+            buttonType="submit"
+            // onClick={() => setIsModalOpen(true)}
+          />
+        </form>
+      </div>
       <Modal
         isOpen={isModalOpen}
         isDimisible
@@ -110,7 +119,7 @@ export default function ContactSection() {
 
 const ContactSectionContainer = styled.div`
   width: 90vw;
-  margin: 0 auto 5rem auto;
+  margin: 0 auto 7rem auto;
 
   @media (min-width: 1024px) {
     width: 80vw;
@@ -125,26 +134,60 @@ const ContactSectionContainer = styled.div`
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
-  .form-container {
+  .contact-section-container {
     display: flex;
     flex-direction: column;
 
-    .responsive-inputs {
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+
+    .contact-description-container {
+      margin-bottom: 3rem;
+
+      @media (min-width: 1024px) {
+        width: 40%;
+        margin-right: 2rem;
+        margin-bottom: 0;
+      }
+
+      @media (min-width: 1366px) {
+        margin-right: 4rem;
+      }
+
+      p {
+        color: #dfdfdf;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .contact-form-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
 
-      @media (min-width: 768px) {
-        width: 100%;
-        flex-direction: row;
+      @media (min-width: 1024px) {
+        width: 60%;
+      }
 
-        .inputName {
+      .responsive-inputs {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 768px) {
           width: 100%;
-          margin-right: 1rem;
+          flex-direction: row;
+
+          .inputName {
+            width: 100%;
+            margin-right: 1rem;
+          }
         }
       }
     }

@@ -78,7 +78,7 @@ const NavbarStyles = styled.div<NavbarProps>`
   ${(props) => props.showShadow && `border-bottom-color: rgba(237 237 237);`}
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   @media (min-width: 768px) {

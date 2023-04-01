@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{`Lennon Perez's Porfolio`}</title>
+        <title>{`Front-end Porfolio - Lennon Perez`}</title>
         <meta name="description" content="This is my professional portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
