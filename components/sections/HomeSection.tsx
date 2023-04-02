@@ -13,9 +13,9 @@ export default function HomeSection() {
       <div className="info-container">
         <h1>Front-end Developer 👋</h1>
         <p>
-          Hi, I&apos;m Lennon Perez, A pasionated web | mobile developer with
-          more than {myYearsOfExperience} years of profesional experience based
-          in Venezuela <span>📍</span>
+          Hi, I&apos;m Lennon Perez, a passionate web | mobile developer with
+          more than {myYearsOfExperience} years of professional experience,
+          currently based in Venezuela <span>📍</span>
         </p>
         <SocialMediaList isLight={false} />
       </div>
