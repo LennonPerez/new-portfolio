@@ -4,8 +4,10 @@ import SocialMediaList from "../shared/SocialMediaList";
 import profilePicture from "../../public/assets/images/me.jpeg";
 
 export default function HomeSection() {
-  const myYearsOfExperience =
-    new Date().getFullYear() - new Date("01-09-2021").getFullYear();
+  const currentYear: number = new Date().getFullYear();
+  const myDebutYear: number = new Date("01-09-2021").getFullYear();
+  const myYearsOfExperience = currentYear - myDebutYear;
+
   return (
     <HeroSectionContainer id="home-section">
       <div className="info-container">
@@ -30,7 +32,6 @@ const HeroSectionContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 90vw;
-  /* margin: 0 auto 10rem auto; */
   padding-top: 7rem;
   margin: 0 auto 4rem auto;
 
