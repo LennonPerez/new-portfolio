@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useRef, useLayoutEffect, DependencyList } from "react";
+import { useRef, useEffect, useLayoutEffect, DependencyList } from "react";
 
 const isBrowser: boolean = typeof window !== `undefined`;
 
@@ -30,7 +30,10 @@ export default function useScrollPosition(
     throttleTimeout = null;
   };
 
-  useLayoutEffect(() => {
+  const useIsomorphicLayoutEffect =
+    typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+  useIsomorphicLayoutEffect(() => {
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {

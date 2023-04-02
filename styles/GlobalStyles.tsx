@@ -27,13 +27,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: ApercuPro, sans-serif;
     scroll-behavior: smooth;
   }
-
-  @font-face {
-    font-family: "ApercuPro";
-    src: url("../public/assets/fonts/Apercu-pro/apercu_regular_pro.otf");
-    font-weight: 400;
-    font-style: normal;
-  }
 `;
 
 export default GlobalStyle;
