@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Image from "next/image";
 import myProjects from "../../utils/myProjects";
 import Button from "../shared/Button";
-import { getSkillByName } from "../../utils/mySkills";
 
 export default function MyWorkSection() {
   return (
