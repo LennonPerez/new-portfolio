@@ -125,7 +125,7 @@ const ContactSectionContainer = styled.div`
   margin: 0 auto 4rem auto;
 
   @media (min-width: 1024px) {
-    padding-top: 7rem;
+    padding-top: 8rem;
     width: 80vw;
   }
 

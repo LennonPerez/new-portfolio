@@ -12,7 +12,7 @@ export default function Home() {
       <Head>
         <title>{`Front-end Porfolio - Lennon Perez`}</title>
         <meta name="description" content="This is my professional portfolio" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/code-icon.png" />
       </Head>
       <ThemesProvider>
         <Default>

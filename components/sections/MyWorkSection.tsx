@@ -30,7 +30,7 @@ export default function MyWorkSection() {
                   isDisabled={!p.webLink}
                   onClick={() => window.open(p.webLink, "_blank")}
                 >
-                  {p.isAppInProd ? "Go to app" : "Live demo"}
+                  {p.isAppInProd ? "Live app" : "Live demo"}
                 </Button>
               </div>
             </div>

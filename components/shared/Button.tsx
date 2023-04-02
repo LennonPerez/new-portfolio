@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const Button: FunctionComponent<ButtonProps> = (props) => {
