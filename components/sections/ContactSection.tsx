@@ -81,8 +81,9 @@ export default function ContactSection() {
           />
           <Button
             isDisabled={isSending}
-            buttonType="submit"
-            // onClick={() => setIsModalOpen(true)}
+            // buttonType="submit"
+            buttonType="button"
+            onClick={() => setIsModalOpen(true)}
           >
             Send message
           </Button>

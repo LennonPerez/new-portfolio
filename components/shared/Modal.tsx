@@ -22,7 +22,8 @@ const Modal: FunctionComponent<ModalProps> = (props) => {
 
   useEffect(() => {
     document.body.style.overflow = props.isOpen ? "hidden" : " auto";
-  }, []);
+    document.body.style.paddingRight = props.isOpen ? "5px" : "0";
+  }, [props.isOpen]);
 
   const element: JSX.Element | null = props.isOpen ? (
     <ModalContainer {...props}>
@@ -60,9 +61,19 @@ const ModalContainer = styled.div<ModalProps>`
     padding: 1.5rem;
     z-index: 20;
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    transition: opacity 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out;
+    transform: translate(-50%, -50%);
+    animation: modal-animation 0.3s ease-in-out;
+
+    @keyframes modal-animation {
+      from {
+        opacity: 0.5;
+        right: -5rem;
+      }
+      to {
+        opacity: 1;
+        right: 0;
+      }
+    }
   }
 `;
 

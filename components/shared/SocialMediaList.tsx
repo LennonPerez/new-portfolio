@@ -34,6 +34,10 @@ const SocialMediaListContainer = styled.div<SocialMediaListProps>`
     border: 2px solid ${(props) => (props.isLight ? "#1f1f24" : "#fcfcfc")};
     transition: background-color 0.3s ease-in-out;
 
+    &:last-child {
+      margin-right: 0;
+    }
+
     .icon {
       color: ${(props) => (props.isLight ? "#1f1f24" : "#fcfcfc")};
       transition: color 0.3s ease-in-out;

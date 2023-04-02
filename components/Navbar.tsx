@@ -6,45 +6,28 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar: FunctionComponent<NavbarProps> = (props) => {
+  const [renderMobileNav, setRenderMobileNav] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = showMobileNav ? "hidden" : " auto";
-  }, []);
+    document.body.style.overflow = renderMobileNav ? "hidden" : "auto";
+    document.body.style.paddingRight = renderMobileNav ? "5px" : "0";
+  }, [renderMobileNav]);
+
+  const onOpenMobileNav = () => {
+    if (renderMobileNav) return;
+    setRenderMobileNav(true);
+    setShowMobileNav(true);
+  };
+
+  const onCloseMobileNav = () => {
+    setShowMobileNav(false);
+    setTimeout(() => setRenderMobileNav(false), 300);
+  };
 
   return (
     <NavbarStyles {...props}>
       <h3>Lennon.dev</h3>
-      {showMobileNav ? (
-        <AiOutlineClose
-          className="bars-icon"
-          onClick={() => setShowMobileNav(false)}
-        />
-      ) : (
-        <RxHamburgerMenu
-          className="bars-icon"
-          onClick={() => setShowMobileNav(true)}
-        />
-      )}
-      {showMobileNav ? (
-        <div className="nav-container mobile">
-          <div className="sections">
-            {navbarSections.map((s, i) => (
-              <a
-                key={i}
-                className="section-link"
-                href={s.link}
-                target={s.openInOtherPage ? "_blank" : ""}
-                rel="noreferrer"
-                onClick={() => setShowMobileNav(false)}
-              >
-                {s.title}
-              </a>
-            ))}
-          </div>
-          <SocialMediaList isLight={false} />
-        </div>
-      ) : null}
       <nav className="nav-container desktop">
         {navbarSections.map((s, i) => (
           <a
@@ -58,6 +41,40 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
           </a>
         ))}
       </nav>
+      {renderMobileNav ? (
+        <AiOutlineClose className="bars-icon" onClick={onCloseMobileNav} />
+      ) : (
+        <RxHamburgerMenu className="bars-icon" onClick={onOpenMobileNav} />
+      )}
+      {renderMobileNav ? (
+        <>
+          <div
+            className={`overlay ${showMobileNav ? "overlay-fade-in" : ""}`}
+            onClick={onCloseMobileNav}
+          />
+          <div
+            className={`nav-container mobile ${
+              showMobileNav ? "mobile-fade-in" : "mobile-fade-out"
+            }`}
+          >
+            <div className="sections">
+              {navbarSections.map((s, i) => (
+                <a
+                  key={i}
+                  className="section-link"
+                  href={s.link}
+                  target={s.openInOtherPage ? "_blank" : ""}
+                  rel="noreferrer"
+                  onClick={onCloseMobileNav}
+                >
+                  {s.title}
+                </a>
+              ))}
+            </div>
+            <SocialMediaList isLight={false} />
+          </div>
+        </>
+      ) : null}
     </NavbarStyles>
   );
 };
@@ -131,10 +148,6 @@ const NavbarStyles = styled.div<NavbarProps>`
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 
-    /* &:hover {
-      color: #7856ff;
-    } */
-
     @media (min-width: 768px) {
       display: none;
     }
@@ -155,31 +168,6 @@ const NavbarStyles = styled.div<NavbarProps>`
       margin-top: 3px;
       background-color: #7856ff;
       transition: all 0.3s ease-in-out;
-    }
-  }
-
-  .mobile {
-    position: fixed;
-    top: 4.5rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #303035;
-
-    @media (min-width: 768px) {
-      display: none;
-    }
-
-    .section-link {
-      display: block;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
     }
   }
 
@@ -210,6 +198,78 @@ const NavbarStyles = styled.div<NavbarProps>`
           width: 100%;
         }
       }
+    }
+  }
+
+  .mobile {
+    z-index: 10;
+    position: fixed;
+    top: 4.75rem;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #303035;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .section-link {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 1.75rem;
+    }
+  }
+
+  .mobile-fade-in {
+    animation: mobile-sections-animation-fowards 0.3s ease-in-out forwards;
+  }
+  .mobile-fade-out {
+    animation: mobile-sections-animation-reversed 0.3s ease-in-out forwards;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 4.75rem;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity ease-in-out 0.3s;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .overlay-fade-in {
+    opacity: 1;
+  }
+
+  @keyframes mobile-sections-animation-fowards {
+    from {
+      opacity: 0;
+      right: -5rem;
+    }
+    to {
+      opacity: 1;
+      right: 0;
+    }
+  }
+  @keyframes mobile-sections-animation-reversed {
+    from {
+      opacity: 1;
+      right: 0;
+    }
+    to {
+      opacity: 0;
+      right: -5rem;
     }
   }
 `;
