@@ -84,6 +84,7 @@ type NavbarProps = {
 };
 
 const NavbarStyles = styled.div<NavbarProps>`
+  /* height: 4.75rem; */
   z-index: 10;
   background-color: #1f1f24;
   display: flex;

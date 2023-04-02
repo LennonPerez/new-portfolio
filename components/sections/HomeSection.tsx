@@ -30,10 +30,13 @@ const HeroSectionContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 90vw;
-  margin: 0 auto 10rem auto;
+  /* margin: 0 auto 10rem auto; */
+  padding-top: 7rem;
+  margin: 0 auto 4rem auto;
 
   @media (min-width: 768px) {
     flex-direction: row;
+    padding-top: 8rem;
   }
 
   @media (min-width: 1024px) {
@@ -42,7 +45,8 @@ const HeroSectionContainer = styled.div`
 
   @media (min-width: 1366px) {
     width: 50vw;
-    margin-top: 10rem;
+    padding-top: 10rem;
+    /* margin-top: 10rem; */
   }
 
   @media (min-width: 1920px) {

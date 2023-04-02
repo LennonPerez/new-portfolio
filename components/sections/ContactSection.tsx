@@ -121,9 +121,11 @@ export default function ContactSection() {
 
 const ContactSectionContainer = styled.div`
   width: 90vw;
-  margin: 0 auto 7rem auto;
+  padding-top: 6.5rem;
+  margin: 0 auto 4rem auto;
 
   @media (min-width: 1024px) {
+    padding-top: 7rem;
     width: 80vw;
   }
 
@@ -138,7 +140,7 @@ const ContactSectionContainer = styled.div`
   h2 {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .contact-section-container {

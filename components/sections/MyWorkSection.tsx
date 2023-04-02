@@ -43,7 +43,8 @@ export default function MyWorkSection() {
 
 const MyWorkContainer = styled.div`
   width: 90vw;
-  margin: 0 auto 7rem auto;
+  padding-top: 6.5rem;
+  margin: 0 auto;
 
   @media (min-width: 1024px) {
     width: 80vw;
