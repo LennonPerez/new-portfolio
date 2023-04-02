@@ -146,7 +146,6 @@ const NavbarStyles = styled.div<NavbarProps>`
     width: 1.5rem;
     height: 1.7rem;
     cursor: pointer;
-    transition: color 0.3s ease-in-out;
 
     @media (min-width: 768px) {
       display: none;

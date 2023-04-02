@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
@@ -11,6 +11,9 @@ interface ModalProps {
 }
 
 const Modal: FunctionComponent<ModalProps> = (props) => {
+  const [renderModal, setRenderModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   // let container: HTMLDivElement | undefined;
 
   // if (typeof window !== "undefined") {
@@ -23,15 +26,33 @@ const Modal: FunctionComponent<ModalProps> = (props) => {
   useEffect(() => {
     document.body.style.overflow = props.isOpen ? "hidden" : " auto";
     document.body.style.paddingRight = props.isOpen ? "5px" : "0";
+    document.body.style.paddingRight = props.isOpen ? "5px" : "0";
+
+    if (props.isOpen) {
+      setRenderModal(true);
+      setShowModal(true);
+    } else {
+      setShowModal(false);
+      setTimeout(() => setRenderModal(false), 200);
+    }
   }, [props.isOpen]);
 
-  const element: JSX.Element | null = props.isOpen ? (
+  const onCloseModal = () => {
+    if (!props.isDimisible) return;
+
+    setShowModal(false);
+    setTimeout(() => props.onClose(), 200);
+  };
+
+  const element: JSX.Element | null = renderModal ? (
     <ModalContainer {...props}>
       <div
-        className="overlay"
-        onClick={() => (props.isDimisible ? props.onClose() : null)}
+        className={`overlay ${showModal ? "overlay-fade-in" : ""}`}
+        onClick={onCloseModal}
       />
-      <div className="modal active">{props.children}</div>
+      <div className={`modal ${showModal ? "modal-show" : "modal-hide"}`}>
+        {props.children}
+      </div>
     </ModalContainer>
   ) : null;
 
@@ -50,7 +71,12 @@ const ModalContainer = styled.div<ModalProps>`
     right: 0;
     left: 0;
     z-index: 20;
+    opacity: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+  }
+  .overlay-fade-in {
+    opacity: 1;
   }
   .modal {
     position: fixed;
@@ -60,19 +86,35 @@ const ModalContainer = styled.div<ModalProps>`
     background-color: #202025;
     padding: 1.5rem;
     z-index: 20;
-    opacity: 1;
     transform: translate(-50%, -50%);
-    animation: modal-animation 0.3s ease-in-out;
+  }
 
-    @keyframes modal-animation {
-      from {
-        opacity: 0.5;
-        right: -5rem;
-      }
-      to {
-        opacity: 1;
-        right: 0;
-      }
+  .modal-show {
+    animation: show-modal-animation 0.2s ease-in-out forwards;
+  }
+  .modal-hide {
+    animation: hide-modal-animation 0.2s ease-in-out forwards;
+  }
+
+  @keyframes show-modal-animation {
+    from {
+      opacity: 0;
+      right: -5rem;
+    }
+    to {
+      opacity: 1;
+      right: 0;
+    }
+  }
+
+  @keyframes hide-modal-animation {
+    from {
+      opacity: 1;
+      right: 0;
+    }
+    to {
+      opacity: 0;
+      right: -5rem;
     }
   }
 `;
