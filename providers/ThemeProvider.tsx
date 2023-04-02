@@ -1,6 +1,6 @@
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, DefaultTheme } from "styled-components";
 
-const theme = {
+const theme: DefaultTheme = {
   colors: {
     primaryBgColor: "#202025",
     secondaryBgColor: "#303036",
@@ -12,7 +12,7 @@ const theme = {
   },
 };
 
-const ThemesProvider = ({ children }: { children: any }) => {
+const ThemesProvider = ({ children }: { children: JSX.Element }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

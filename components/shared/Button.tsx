@@ -23,8 +23,8 @@ interface ButtonProps {
 const ButtonContainer = styled.button<ButtonProps>`
   width: 100%;
   border: 1px solid #7856ff;
-  background-color: #7856ff;
-  color: #fff;
+  background-color: ${(props) => props.theme.colors.tertiaryBgColor};
+  color: ${(props) => props.theme.colors.textPrimaryColor};
   border-radius: 10px;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -33,7 +33,8 @@ const ButtonContainer = styled.button<ButtonProps>`
   opacity: ${(props) => (props.isDisabled ? "0.5" : "1")};
 
   &:hover {
-    background-color: ${(props) => (props.isDisabled ? "#7856ff" : "#8f78ec")};
+    background-color: ${(props) =>
+      props.isDisabled ? props.theme.colors.tertiaryBgColor : "#8f78ec"};
   }
 `;
 

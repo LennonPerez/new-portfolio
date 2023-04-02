@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FunctionComponent, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import SocialMediaList from "./shared/SocialMediaList";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import useScrollPosition from "../hooks/useScrollPosition";
 
-const Navbar: FunctionComponent<NavbarProps> = (props) => {
+const Navbar = () => {
+  const [isScrollOnTop, setIsScrollOnTop] = useState(false);
   const [renderMobileNav, setRenderMobileNav] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -13,6 +15,15 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
     document.body.style.overflow = renderMobileNav ? "hidden" : "auto";
     document.body.style.paddingRight = renderMobileNav ? "5px" : "0";
   }, [renderMobileNav]);
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y > 0;
+      if (isShow !== isScrollOnTop) setIsScrollOnTop(isShow);
+    },
+    [isScrollOnTop],
+    100
+  );
 
   const onOpenMobileNav = () => {
     if (renderMobileNav) return;
@@ -26,7 +37,7 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
   };
 
   return (
-    <NavbarStyles {...props}>
+    <NavbarStyles showShadow={isScrollOnTop}>
       <h3>Lennon.dev</h3>
       <nav className="nav-container desktop">
         {navbarSections.map((s, i) => (
@@ -79,14 +90,14 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
   );
 };
 
-type NavbarProps = {
+type NavbarStyleProps = {
   showShadow: boolean;
 };
 
-const NavbarStyles = styled.div<NavbarProps>`
+const NavbarStyles = styled.div<NavbarStyleProps>`
   /* height: 4.75rem; */
   z-index: 10;
-  background-color: #1f1f24;
+  background-color: ${(props) => props.theme.colors.textTertiaryColor};
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -154,7 +165,7 @@ const NavbarStyles = styled.div<NavbarProps>`
   }
 
   .section-link {
-    color: #fff;
+    color: ${(props) => props.theme.colors.textPrimaryColor};
     cursor: pointer;
     font-size: 1.1rem;
     text-decoration: none;
@@ -166,7 +177,7 @@ const NavbarStyles = styled.div<NavbarProps>`
       display: block;
       height: 2px;
       margin-top: 3px;
-      background-color: #7856ff;
+      background-color: ${(props) => props.theme.colors.tertiaryBgColor};
       transition: all 0.3s ease-in-out;
     }
   }
@@ -180,7 +191,7 @@ const NavbarStyles = styled.div<NavbarProps>`
 
     &:hover {
       .section-link {
-        color: #9e9e9e;
+        color: ${(props) => props.theme.colors.textSecondaryColor};
       }
     }
 
@@ -192,7 +203,7 @@ const NavbarStyles = styled.div<NavbarProps>`
       }
 
       &:hover {
-        color: #fff;
+        color: ${(props) => props.theme.colors.textPrimaryColor};
 
         &:after {
           width: 100%;

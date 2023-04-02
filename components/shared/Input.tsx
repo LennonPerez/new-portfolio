@@ -62,7 +62,7 @@ const InputContainer = styled.div<{ isFocused: boolean; props: InputProps }>`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #303036;
+  background-color: ${(props) => props.theme.colors.secondaryBgColor};
   border-radius: 10px;
   margin-bottom: 1rem;
   transition: border 0.2s ease-in-out;
@@ -81,8 +81,8 @@ const InputContainer = styled.div<{ isFocused: boolean; props: InputProps }>`
     cursor: ${({ props }) => (props.isDisabled ? "not-allowed" : "text")};
     padding: 0.4rem 1rem 1rem 1rem;
     border-radius: 0 0 10px 10px;
-    background-color: #303036;
-    color: #fff;
+    background-color: ${(props) => props.theme.colors.secondaryBgColor};
+    color: ${(props) => props.theme.colors.textPrimaryColor};
     border: none;
     outline: none;
 
@@ -90,7 +90,8 @@ const InputContainer = styled.div<{ isFocused: boolean; props: InputProps }>`
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      -webkit-text-fill-color: #fff !important;
+      -webkit-text-fill-color: ${(props) =>
+        props.theme.colors.textPrimaryColor} !important;
       box-shadow: 0 0 0 30px #303036 inset !important;
       -webkit-box-shadow: 0 0 0 30px #303036 inset !important;
     }

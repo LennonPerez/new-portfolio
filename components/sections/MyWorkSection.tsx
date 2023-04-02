@@ -80,8 +80,7 @@ const MyWorkContainer = styled.div`
 
     .project-container {
       border-radius: 10px;
-      background-color: #303036;
-      /* background-color: #fcfcfc; */
+      background-color: ${(props) => props.theme.colors.secondaryBgColor};
 
       @media (min-width: 768px) {
         display: flex;
@@ -120,8 +119,7 @@ const MyWorkContainer = styled.div`
 
         .content-text {
           .project-title {
-            /* color: #1f1f24; */
-            color: #fff;
+            color: ${(props) => props.theme.colors.textPrimaryColor};
             font-size: 1.5rem;
             margin-bottom: 1rem;
           }

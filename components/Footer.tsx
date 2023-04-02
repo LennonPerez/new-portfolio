@@ -17,7 +17,7 @@ export default function Footer() {
 }
 
 const FooterContainer = styled.footer`
-  background-color: #fcfcfc;
+  background-color: ${(props) => props.theme.colors.fourthBgColor};
   height: 7.5rem;
   color: #000;
 

@@ -31,7 +31,11 @@ const SocialMediaListContainer = styled.div<SocialMediaListProps>`
     margin-bottom: 0;
     padding: 0.4rem;
     border-radius: 999px;
-    border: 2px solid ${(props) => (props.isLight ? "#1f1f24" : "#fcfcfc")};
+    border: 2px solid
+      ${(props) =>
+        props.isLight
+          ? props.theme.colors.textTertiaryColor
+          : props.theme.colors.fourthBgColor};
     transition: background-color 0.3s ease-in-out;
 
     &:last-child {
@@ -39,7 +43,10 @@ const SocialMediaListContainer = styled.div<SocialMediaListProps>`
     }
 
     .icon {
-      color: ${(props) => (props.isLight ? "#1f1f24" : "#fcfcfc")};
+      color: ${(props) =>
+        props.isLight
+          ? props.theme.colors.textTertiaryColor
+          : props.theme.colors.fourthBgColor};
       transition: color 0.3s ease-in-out;
       vertical-align: -0.29rem;
       height: 1.3rem;
@@ -47,10 +54,16 @@ const SocialMediaListContainer = styled.div<SocialMediaListProps>`
     }
 
     &:hover {
-      background-color: ${(props) => (props.isLight ? "#1f1f24" : "#fcfcfc")};
+      background-color: ${(props) =>
+        props.isLight
+          ? props.theme.colors.textTertiaryColor
+          : props.theme.colors.fourthBgColor};
 
       .icon {
-        color: ${(props) => (props.isLight ? "#fcfcfc" : "#1f1f24")};
+        color: ${(props) =>
+          props.isLight
+            ? props.theme.colors.fourthBgColor
+            : props.theme.colors.textTertiaryColor};
       }
     }
   }

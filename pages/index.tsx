@@ -5,6 +5,7 @@ import Skills from "../components/sections/SkillsSection";
 import MyWorkSection from "../components/sections/MyWorkSection";
 import ContactSection from "../components/sections/ContactSection";
 import ThemesProvider from "../providers/ThemeProvider";
+import GlobalStyle from "../styles/GlobalStyles";
 
 export default function Home() {
   return (
@@ -15,12 +16,15 @@ export default function Home() {
         <link rel="icon" href="/code-icon.png" />
       </Head>
       <ThemesProvider>
-        <Default>
-          <HomeSection />
-          <Skills />
-          <MyWorkSection />
-          <ContactSection />
-        </Default>
+        <>
+          <GlobalStyle />
+          <Default>
+            <HomeSection />
+            <Skills />
+            <MyWorkSection />
+            <ContactSection />
+          </Default>
+        </>
       </ThemesProvider>
     </>
   );

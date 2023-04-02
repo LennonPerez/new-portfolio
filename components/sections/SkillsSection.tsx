@@ -76,8 +76,8 @@ const SkillsSectionContainer = styled.div`
       margin-bottom: 1rem;
       margin-right: 1rem;
       border-radius: 10px;
-      background-color: #fcfcfc;
-      color: #1f1f24;
+      background-color: ${(props) => props.theme.colors.fourthBgColor};
+      color: ${(props) => props.theme.colors.textTertiaryColor};
 
       .skill-icon {
         width: 1.75rem;

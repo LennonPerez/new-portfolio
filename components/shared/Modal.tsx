@@ -83,7 +83,7 @@ const ModalContainer = styled.div<ModalProps>`
     top: 50%;
     left: 50%;
     border-radius: 10px;
-    background-color: #202025;
+    background-color: ${(props) => props.theme.colors.primaryBgColor};
     padding: 1.5rem;
     z-index: 20;
     transform: translate(-50%, -50%);
