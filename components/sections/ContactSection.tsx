@@ -43,8 +43,8 @@ export default function ContactSection() {
         <div className="contact-description-container">
           <h2>Get in touch!</h2>
           <p>
-            Have you got an interesting idea?, you can contact me trough the
-            form down bellow, or my social media. Let&apos;s talk!
+            Have you got an interesting idea?, you can contact me through this
+            form, or through my social networks. Let&apos;s talk!
           </p>
           <SocialMediaList isLight={false} />
         </div>
@@ -55,8 +55,9 @@ export default function ContactSection() {
                 label="Name"
                 name="name"
                 placeholder="Enter your name"
-                isDisabled={isSending}
                 isRequired
+                isDisabled={isSending}
+                value={emailToSend.name}
                 onChange={onChangeInput}
               />
             </div>
@@ -65,8 +66,9 @@ export default function ContactSection() {
               name="email"
               placeholder="Enter your email"
               textType="email"
-              isDisabled={isSending}
               isRequired
+              isDisabled={isSending}
+              value={emailToSend.email}
               onChange={onChangeInput}
             />
           </div>
@@ -75,8 +77,9 @@ export default function ContactSection() {
             name="message"
             placeholder="Enter your message"
             linesNum={5}
-            isDisabled={isSending}
             isRequired
+            isDisabled={isSending}
+            value={emailToSend.message}
             onChange={onChangeInput}
           />
           <Button
@@ -85,7 +88,7 @@ export default function ContactSection() {
             // buttonType="button"
             // onClick={() => setIsModalOpen(true)}
           >
-            Send message
+            {isSending ? "Sending message" : "Send message"}
           </Button>
         </form>
       </div>

@@ -22,6 +22,7 @@ const Input: FunctionComponent<InputProps> = (props) => {
       {props.linesNum && props.linesNum > 1 ? (
         <textarea
           id={inputId}
+          value={props.value}
           name={props.name}
           placeholder={props.placeholder}
           rows={props.linesNum}
@@ -35,6 +36,7 @@ const Input: FunctionComponent<InputProps> = (props) => {
         <input
           id={inputId}
           type={props.textType}
+          value={props.value}
           name={props.name}
           placeholder={props.placeholder}
           required={props.isRequired}
@@ -50,6 +52,7 @@ const Input: FunctionComponent<InputProps> = (props) => {
 
 interface InputProps {
   textType?: HTMLInputTypeAttribute;
+  value: string;
   name: string;
   label: string;
   placeholder?: string;
