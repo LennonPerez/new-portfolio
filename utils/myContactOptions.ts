@@ -1,14 +1,15 @@
-import { RxEnvelopeClosed } from 'react-icons/rx'
-import { BsWhatsapp, BsGithub } from 'react-icons/bs'
+import { IconType } from 'react-icons';
 import { BiEnvelope } from 'react-icons/bi'
-import { FaLinkedinIn } from 'react-icons/fa'
 import { AiFillGithub, AiOutlineWhatsApp, AiFillLinkedin } from 'react-icons/ai'
-import { TiSocialLinkedin } from 'react-icons/ti'
-import { GrLinkedinOption } from 'react-icons/gr'
-import { RiLinkedinFill } from 'react-icons/ri'
 
-const contactOptions = [
-    {
+interface ContactOption {
+  name: string,
+  url: string,
+  icon: IconType,
+}
+
+const contactOptions: ContactOption[] = [
+      {
         name: "Email",
         url: "mailto:lenonart14@gmail.com",
         icon: BiEnvelope,

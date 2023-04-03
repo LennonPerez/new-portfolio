@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { EmailToSend, sendContactInfo } from "../../services/contactService";
 import styled from "styled-components";
 import Button from "../shared/Button";
