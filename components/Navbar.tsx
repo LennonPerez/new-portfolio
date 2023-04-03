@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <NavbarStyles showShadow={isScrollOnTop}>
-      <h3>Lennon.dev</h3>
+      <h3>Lennonart.dev</h3>
       <nav className="nav-container desktop">
         {navbarSections.map((s, i) => (
           <a
