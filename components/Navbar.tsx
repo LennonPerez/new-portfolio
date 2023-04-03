@@ -308,7 +308,7 @@ const navbarSections = [
   },
   {
     title: "Resume",
-    link: "https://drive.google.com/file/d/1ai6tfMvslOwRY5gmcyttpOGftkw1kHGv/view?usp=sharing",
+    link: process.env.MY_RESUME_LINK,
     openInOtherPage: true,
   },
 ];
