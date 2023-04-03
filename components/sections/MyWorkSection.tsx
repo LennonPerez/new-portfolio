@@ -1,9 +1,16 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import myProjects from "../../utils/myProjects";
 import Button from "../shared/Button";
 
 export default function MyWorkSection() {
+  const [showImages, setShowImages] = useState(false);
+
+  useEffect(() => {
+    setShowImages(true);
+  }, []);
+
   return (
     <MyWorkContainer id="my-work-section">
       <h2>My work</h2>
@@ -11,7 +18,12 @@ export default function MyWorkSection() {
         {myProjects.map((p, i) => (
           <li key={i} className="project-container">
             <div className="thumbnail-container">
-              <Image className="image" src={p.thumbnail} alt={p.title} fill />
+              {showImages ? (
+                <Image className="image" src={p.thumbnail} alt={p.title} fill />
+              ) : (
+                <div className="image placeholder" />
+              )}
+              {/* <Image className="image" src={p.thumbnail} alt={p.title} fill /> */}
             </div>
             <div className="content-container">
               <div className="content-text">

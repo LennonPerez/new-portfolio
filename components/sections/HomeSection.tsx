@@ -1,9 +1,16 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import SocialMediaList from "../shared/SocialMediaList";
 import profilePicture from "../../public/assets/images/me.jpeg";
 
 export default function HomeSection() {
+  const [showImages, setShowImages] = useState(false);
+
+  useEffect(() => {
+    setShowImages(true);
+  }, []);
+
   const currentYear: number = new Date().getFullYear();
   const myDebutYear: number = new Date("01-09-2021").getFullYear();
   const myYearsOfExperience = currentYear - myDebutYear;
@@ -20,7 +27,12 @@ export default function HomeSection() {
         <SocialMediaList isLight={false} />
       </div>
       <div className="image-container">
-        <Image className="image" src={profilePicture} alt="Lennon" fill />
+        {showImages ? (
+          <Image className="image" src={profilePicture} alt="Lennon" fill />
+        ) : (
+          <div className="image placeholder" />
+        )}
+        {/* <Image className="image" src={profilePicture} alt="Lennon" fill /> */}
       </div>
     </HeroSectionContainer>
   );

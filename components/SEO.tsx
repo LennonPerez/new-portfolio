@@ -16,16 +16,17 @@ const SEO = () => {
         property="og:description"
         content="Hey there, I'm a front-end developer, go and check out my work"
       />
-      <meta property="og:image" itemProp="image" content="/seoImage.png" />
+      <meta
+        property="og:image"
+        itemProp="image"
+        content="https://i.ibb.co/869KZz7/Screenshot-2023-04-02-at-6-13-46-PM.png"
+      />
       <meta
         property="og:image:secure_url"
         itemProp="image"
-        content="/seoImage.png"
+        content="https://i.ibb.co/869KZz7/Screenshot-2023-04-02-at-6-13-46-PM.png"
       />
-      <meta
-        property="og:url"
-        content="https://lennonperezportfolio.netlify.app/"
-      />
+      <meta property="og:url" content="https://lennonart.dev" />
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="300" />
       <meta property="og:image:type" content="image/png" />
