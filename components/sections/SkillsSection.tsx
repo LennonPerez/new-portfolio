@@ -7,7 +7,7 @@ export default function SkillsSection() {
 
   return (
     <SkillsSectionContainer id="skills-section">
-      <h2>My profesional skills</h2>
+      <h2>My professional skills</h2>
       <h3>Front-end</h3>
       <ul className="skills-container">
         {frontEndSkills.map((s, i) => (

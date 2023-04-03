@@ -21,7 +21,7 @@ interface myProjects {
 const myProjects: myProjects[] = [
     {
         title: "El Dorado Wallet - P2P",
-        description: "This is a crossplatform app published in Google Play Store, Apple App Store, and a web version, this app lets you save and exchange crypto currencies for fiat currencies through a P2P marketplace at a low fee.",
+        description: "This is a crossplatform app published in Google Play Store, Apple App Store and web, it lets you save and exchange crypto currencies for fiat currencies through a P2P marketplace at a low fee.",
         thumbnail: ElDoradoTablet,
         webLink: "https://app.eldorado.io/",
         googlePlayStoreLink: "https://play.google.com/store/apps/details?id=io.eldorado.app",
@@ -35,7 +35,7 @@ const myProjects: myProjects[] = [
     },
     {
         title: "Invoices Manager",
-        description: "This is a fullstack web app where you can manage, you can create, edit and eliminate an invoice by using a form. It was built using React, Redux, SASS and Strapi CMS connected to a mongoDB database.",
+        description: "This is a fullstack web app where you can manage your invoices, you can create, edit and delete an invoice by using a form. It was built using React, Redux, SASS and Strapi CMS connected to a mongoDB database.",
         thumbnail: InvoiceManagerTablet,
         repoLink: "https://github.com/LennonPerez/InvoicesManager",
         webLink: "https://invoicesmanager.netlify.app/",
