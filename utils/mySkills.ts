@@ -1,13 +1,35 @@
 import { IconType } from "react-icons";
-import { FaReact, FaVuejs, FaSass, FaNodeJs, FaAngular, FaHtml5 } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiFlutter, SiDart, SiNuxtdotjs, SiCss3, SiTailwindcss, SiExpress, SiFirebase, SiPython, SiJest, SiJavascript, SiPostgresql, SiAwslambda } from 'react-icons/si'
-import { GrGatsbyjs } from 'react-icons/gr'
-import { BsFillBootstrapFill } from 'react-icons/bs'
+import {
+  FaReact,
+  FaVuejs,
+  FaSass,
+  FaNodeJs,
+  FaAngular,
+  FaHtml5,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiFlutter,
+  SiDart,
+  SiNuxtdotjs,
+  SiCss3,
+  SiTailwindcss,
+  SiExpress,
+  SiFirebase,
+  SiPython,
+  SiJest,
+  SiJavascript,
+  SiPostgresql,
+  SiAwslambda,
+} from "react-icons/si";
+import { GrGatsbyjs } from "react-icons/gr";
+import { BsFillBootstrapFill } from "react-icons/bs";
 
 export enum skillType {
-  FrontEnd = "Front-End", 
-  BackEnd = "Back-End", 
-  FullStack = "Fullstack", 
+  FrontEnd = "Front-End",
+  BackEnd = "Back-End",
+  FullStack = "Fullstack",
   Blockchain = "Blockchain",
 }
 
@@ -39,9 +61,9 @@ export enum skillName {
 }
 
 export interface skill {
-  title: string,
-  type: skillType,
-  icon: IconType,
+  title: string;
+  type: skillType;
+  icon: IconType;
 }
 
 const mySkills: skill[] = [
@@ -106,7 +128,7 @@ const mySkills: skill[] = [
     icon: SiCss3,
   },
   {
-    title:  skillName.SASS,
+    title: skillName.SASS,
     type: skillType.FrontEnd,
     icon: FaSass,
   },
@@ -167,6 +189,7 @@ const mySkills: skill[] = [
   },
 ];
 
-export const getSkillByName = (name: skillName): skill | undefined  => mySkills.find(s => s.title === name)
+export const getSkillByName = (name: skillName): skill | undefined =>
+  mySkills.find((s) => s.title === name);
 
 export default mySkills;
