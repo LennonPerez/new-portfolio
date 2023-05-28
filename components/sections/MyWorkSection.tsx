@@ -85,9 +85,9 @@ const MyWorkContainer = styled.div`
       grid-template-columns: repeat(2, 1fr);
     } */
 
-    @media (min-width: 1366px) {
+    /* @media (min-width: 1366px) {
       grid-template-columns: repeat(2, 1fr);
-    }
+    } */
 
     .project-container {
       border-radius: 10px;
