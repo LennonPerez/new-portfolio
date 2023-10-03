@@ -22,7 +22,7 @@ interface ButtonProps {
 
 const ButtonContainer = styled.button<ButtonProps>`
   width: 100%;
-  border: 1px solid #7856ff;
+  border: 1px solid ${(props) => props.theme.colors.tertiaryBgColor};
   background-color: ${(props) => props.theme.colors.tertiaryBgColor};
   color: ${(props) => props.theme.colors.textPrimaryColor};
   border-radius: 10px;

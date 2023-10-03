@@ -6,10 +6,13 @@ import {
   useState,
 } from "react";
 import styled from "styled-components";
+import { useEffect } from 'react';
 
 const Input: FunctionComponent<InputProps> = (props) => {
-  const inputId: string = useMemo(() => crypto.randomUUID(), []);
+  const [inputId, setInputId] = useState<string>('');
   const [isFocused, setFocus] = useState<boolean>(false);
+
+  useEffect(() => setInputId(crypto.randomUUID()) ,[])
 
   return (
     <InputContainer isFocused={isFocused} props={props}>
@@ -71,13 +74,13 @@ const InputContainer = styled.div<{ isFocused: boolean; props: InputProps }>`
   margin-bottom: 1rem;
   transition: border 0.2s ease-in-out;
   border: 1px solid
-    ${({ isFocused }) => (isFocused ? "#8a8a8a" : "transparent")};
+    ${({ isFocused, theme }) => (isFocused ? theme.colors.focusedBorderColor : "transparent")};
 
   label {
     cursor: ${({ props }) => (props.isDisabled ? "not-allowed" : "text")};
     border-radius: 10px 10px 0 0;
     padding: 1rem 1rem 0.4rem 1rem;
-    color: #dfdfdf;
+    color: ${(props) => props.theme.colors.textFourthColor};
   }
   input,
   textarea {

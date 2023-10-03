@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
   return (
     <FooterContainer>
       <div className="footer-inner-container">
@@ -9,7 +10,7 @@ export default function Footer() {
           Made with ❤️ by Lennon Perez
         </p>
         <p className="footer-message">
-        📍 Guanare, Venezuela - {currentYear}
+          <span>📍</span> Guanare, Venezuela - {currentYear}
         </p>
       </div>
     </FooterContainer>
@@ -55,6 +56,10 @@ const FooterContainer = styled.footer`
 
     .footer-message {
       font-size: 1rem;
+
+      span {
+        font-size: 0.8rem;
+      }
     }
   }
 `;

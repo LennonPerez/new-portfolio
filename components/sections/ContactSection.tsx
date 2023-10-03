@@ -166,7 +166,7 @@ const ContactSectionContainer = styled.div`
       }
 
       p {
-        color: #dfdfdf;
+        color: ${(props) => props.theme.colors.textFourthColor};
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
       }
@@ -211,7 +211,7 @@ const ContactSectionContainer = styled.div`
     }
     .modal-description {
       font-size: 1rem;
-      color: #dfdfdf;
+      color: ${(props) => props.theme.colors.textFourthColor};
       margin-bottom: 1.5rem;
     }
     .modal-social-media {

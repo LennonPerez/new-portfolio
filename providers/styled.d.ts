@@ -10,6 +10,18 @@ declare module "styled-components" {
       textPrimaryColor: string;
       textSecondaryColor: string;
       textTertiaryColor: string;
+      textFourthColor: string;
+      focusedBorderColor: string,
+      // button: {
+      //   primary: {
+      //     backgroundColor: string,
+      //     borderColor: string,
+      //     textColor: string,
+      //     hoverBackgroundColor: string,
+      //     hoverBorderColor: string,
+      //     hoverTextColor: string,
+      //   }
+      // }
     };
   }
 }

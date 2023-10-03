@@ -14,7 +14,6 @@ export const sendContactInfo = async (e: EmailToSend): Promise<boolean> => {
     const res = await emailjs.send(serviceID, templateID, payload, publicKey);
     return res.status === 200;
   } catch (error) {
-    console.error(error);
     return false;
   }
 };

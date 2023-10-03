@@ -136,7 +136,7 @@ const MyWorkContainer = styled.div`
           }
 
           .project-description {
-            color: #dfdfdf;
+            color: ${(props) => props.theme.colors.textFourthColor};
             margin-bottom: 1.5rem;
           }
         }

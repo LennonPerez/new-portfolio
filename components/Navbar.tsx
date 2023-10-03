@@ -223,7 +223,7 @@ const NavbarStyles = styled.div<NavbarStyleProps>`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #303035;
+    background-color: ${(props) => props.theme.colors.secondaryBgColor};
 
     @media (min-width: 768px) {
       display: none;

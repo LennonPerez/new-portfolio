@@ -1,18 +1,12 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import SocialMediaList from "../shared/SocialMediaList";
 import profilePicture from "../../public/assets/images/me.jpeg";
+// import profilePicture from "../../public/assets/images/me.png";
 
 export default function HomeSection() {
-  const [showImages, setShowImages] = useState(false);
-
-  useEffect(() => {
-    setShowImages(true);
-  }, []);
-
-  const currentYear: number = new Date().getFullYear();
-  const myDebutYear: number = new Date("01-09-2021").getFullYear();
+  const currentYear = new Date().getFullYear();
+  const myDebutYear = new Date("01-09-2021").getFullYear();
   const myYearsOfExperience = currentYear - myDebutYear;
 
   return (
@@ -27,12 +21,7 @@ export default function HomeSection() {
         <SocialMediaList isLight={false} />
       </div>
       <div className="image-container">
-        {showImages ? (
-          <Image className="image" src={profilePicture} alt="Lennon" fill />
-        ) : (
-          <div className="image placeholder" />
-        )}
-        {/* <Image className="image" src={profilePicture} alt="Lennon" fill /> */}
+        <Image className="image" src={profilePicture} alt="Lennon" fill />
       </div>
     </HeroSectionContainer>
   );
@@ -81,8 +70,8 @@ const HeroSectionContainer = styled.div`
 
     p {
       margin-bottom: 1.5rem;
-      color: #dfdfdf;
       font-size: 1.1rem;
+      color: ${(props) => props.theme.colors.textFourthColor};
 
       span {
         font-size: 0.8rem;
@@ -91,6 +80,7 @@ const HeroSectionContainer = styled.div`
   }
 
   .image-container {
+    background-color: ${(props) => props.theme.colors.secondaryBgColor};
     position: relative;
     border-radius: 9999px;
     width: 80vw;
