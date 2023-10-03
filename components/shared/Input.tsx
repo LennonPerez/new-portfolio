@@ -2,19 +2,14 @@ import {
   ChangeEvent,
   FunctionComponent,
   HTMLInputTypeAttribute,
+  useMemo,
   useState,
-  useEffect,
 } from "react";
 import styled from "styled-components";
 
 const Input: FunctionComponent<InputProps> = (props) => {
+  const inputId: string = useMemo(() => crypto.randomUUID(), []);
   const [isFocused, setFocus] = useState<boolean>(false);
-  let inputId: string = "";
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    inputId = crypto.randomUUID();
-  }, []);
 
   return (
     <InputContainer isFocused={isFocused} props={props}>

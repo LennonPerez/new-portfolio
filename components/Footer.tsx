@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import SocialMediaList from "./shared/SocialMediaList";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <FooterContainer>
       <div className="footer-inner-container">
-        <SocialMediaList isLight={true} />
-        {/* <div /> */}
         <p className="footer-message">
-          Made with ❤️ by Lennon Perez - {currentYear}
+          Made with ❤️ by Lennon Perez
+        </p>
+        <p className="footer-message">
+        📍 Guanare, Venezuela - {currentYear}
         </p>
       </div>
     </FooterContainer>
@@ -17,9 +17,9 @@ export default function Footer() {
 }
 
 const FooterContainer = styled.footer`
-  background-color: ${(props) => props.theme.colors.fourthBgColor};
+  background-color: ${(props) => props.theme.colors.secondaryBgColor};
+  color: ${(props) => props.theme.colors.textPrimaryColor};
   height: 7.5rem;
-  color: #000;
 
   @media (min-width: 768px) {
     height: 4rem;
@@ -54,7 +54,7 @@ const FooterContainer = styled.footer`
     }
 
     .footer-message {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 `;

@@ -85,8 +85,6 @@ export default function ContactSection() {
           <Button
             isDisabled={isSending}
             buttonType="submit"
-            // buttonType="button"
-            // onClick={() => setIsModalOpen(true)}
           >
             {isSending ? "Sending message" : "Send message"}
           </Button>
@@ -125,7 +123,7 @@ export default function ContactSection() {
 const ContactSectionContainer = styled.div`
   width: 90vw;
   padding-top: 6.5rem;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 6.5rem auto;
 
   @media (min-width: 1024px) {
     padding-top: 8rem;
