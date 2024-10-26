@@ -10,7 +10,7 @@ export default function Footer() {
           Made with ❤️ by Lennon Perez
         </p>
         <p className="footer-message">
-          <span>📍</span> Guanare, Venezuela - {currentYear}
+          <span>📍</span> Buenos Aires, Argentina - {currentYear}
         </p>
       </div>
     </FooterContainer>
